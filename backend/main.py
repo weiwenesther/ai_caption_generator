@@ -1,5 +1,7 @@
+import os
 import requests
 from fastapi import FastAPI, UploadFile, File
+from dotenv import load_dotenv
 
 app = FastAPI()
 
@@ -13,8 +15,11 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
+load_dotenv()  
 
-HUGGINGFACE_API_KEY = "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"
+app = FastAPI()
+
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
 HEADERS = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
 

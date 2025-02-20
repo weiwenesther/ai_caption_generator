@@ -1,6 +1,10 @@
 import requests
+import os 
+from dotenv import load_dotenv
 
-API_KEY = "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"
+load_dotenv()
+
+API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 url = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base"  # Correct endpoint
 headers = {"Authorization": f"Bearer {API_KEY}"}
 

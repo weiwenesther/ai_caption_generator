@@ -1,6 +1,10 @@
+import os
 import requests
+from dotenv import load_dotenv
 
-API_KEY = "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"
+load_dotenv()
+
+API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 API_URL = "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
